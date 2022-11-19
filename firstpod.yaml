@@ -1,0 +1,13 @@
+###we know that all the intraction to your k8s cluster happen through api
+apiVersion: v1
+####pod is a generic term
+#it will invoke the pod api which is like a wrapper to deploy our container workload
+kind: Pod #kubernetes entity
+metadata:
+  name: myapp #inside your k8s cluster we need to create a pod.
+spec: #inside my pod api i want to deploy a container
+  containers:
+    - name: myapp
+      image: nginx:1.14.2 #name of the image and it will be picked from hub.docker.com
+      ports: #EXPOSE
+        - containerPort: 80
