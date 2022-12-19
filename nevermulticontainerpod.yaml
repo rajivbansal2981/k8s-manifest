@@ -4,13 +4,18 @@ apiVersion: v1
 #it will invoke the pod api which is like a wrapper to deploy our container workload
 kind: Pod #kubernetes entity
 metadata:
-  name: myfirstapp #To create and give the name of the pod inside k8s cluster we use name section in metadata.
+  name: multicontainerapp #To create and give the name of the pod inside k8s cluster we use name section in metadata.
 spec: #inside my pod api i want to deploy a container
   containers:
-    - name: myfirstapp1 #Name of the container
+    - name: mynginxapp #Name of the container
       image: nginx:1.14.2 #By default name of the image and it will be picked from hub.docker.com
       #If private repository or nexus or jfrog then provide the full path - image:http://12.12.23.32/v1/ngnix:1.4.2
       ports: #EXPOSE
         - containerPort: 80
+    - name: busy-box
+      image: busy-box
+      command:
+        - sleep
+        - "3600"
 
 
