@@ -13,7 +13,7 @@ spec: #inside my pod api i want to deploy a container
       ports: #EXPOSE
         - containerPort: 80
     - name: busy-box
-      image: busy-box
+      image: busybox
       command:
         - sleep
         - "3600"
