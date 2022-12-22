@@ -21,6 +21,7 @@ spec: #inside my pod api i want to deploy a container
       image: nginx
       ports:
         - containerPort: 80
-      volumeMounts:
+      volumeMounts: #Two different path of these two different images are mounted based on the name of VolumeMount is logs
         - name: logs #This path is mounted to name: logs
           mountPath: /usr/share/nginx/html
+
